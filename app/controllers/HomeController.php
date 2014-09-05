@@ -15,9 +15,15 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function getIndex()
 	{
-		return View::make('hello');
+		   $theme = Theme::uses('default')->layout('default');
+
+	        $view = array(
+	            'name' => 'Teepluss'
+	        );
+
+         return $theme->scope('home.index', $view)->render();
 	}
 
 }
